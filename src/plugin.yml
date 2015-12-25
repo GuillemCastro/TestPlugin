@@ -1,0 +1,9 @@
+name: TestPlugin
+main: io.github.hombrecaca.TestPlugin.TestPlugin
+version: 0.1
+commands:
+   suicidar:
+      description: Suicidio.
+      usage: /<command> [nombre_jugador]
+      permission: <nombredelplugin>.basico
+      permission-message: Usted no tiene <permiso>
