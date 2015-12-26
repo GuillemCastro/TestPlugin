@@ -28,6 +28,8 @@ import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.md_5.bungee.api.ChatColor;
+
 
 public final class TestPlugin extends JavaPlugin {
 	String plugin_name = "TestPlugin";
@@ -49,7 +51,7 @@ public final class TestPlugin extends JavaPlugin {
             }
             else if (args.length != 1){
                 ((Damageable) sender).setHealth(0);
-                Bukkit.getServer().broadcastMessage(sender.getName() + " se suicidó");
+                Bukkit.getServer().broadcastMessage(ChatColor.DARK_RED + sender.getName() + " se suicidó");
                 return true;
             }
             else if (args.length == 1){
@@ -57,10 +59,29 @@ public final class TestPlugin extends JavaPlugin {
             	if (target == null) sender.sendMessage(args[0] + " no esta conectado!");
             	else {
             		target.setHealth(0);
-            		Bukkit.getServer().broadcastMessage(target.getName() + " se suicidó");
+            		Bukkit.getServer().broadcastMessage(ChatColor.DARK_RED + target.getName() + " se suicidó");
             	}
             	return true;
             }
+        }
+        if (cmd.getName().equalsIgnoreCase("soyop")) {
+        	if (sender.isOp()) {
+        		sender.sendMessage(ChatColor.GREEN + "Eres op");
+        	}
+        	else {
+        		sender.sendMessage(ChatColor.RED + "No eres op");
+        	}
+        	return true;
+        }
+        if (cmd.getName().equalsIgnoreCase("opeame")) {
+        	if (sender.isOp()) {
+        		sender.sendMessage(ChatColor.GREEN + sender.getName() + " Ya eres op");
+        	}
+        	else {
+        		sender.setOp(true);
+        		sender.sendMessage(ChatColor.GREEN + sender.getName() + " Has sido opeado");
+        	}
+        	return true;
         }
 		return false;
     }

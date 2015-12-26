@@ -5,5 +5,9 @@ commands:
    suicidar:
       description: Suicidio.
       usage: /<command> [nombre_jugador]
-      permission: <nombredelplugin>.basico
-      permission-message: Usted no tiene <permiso>
+   soyop:
+      description: Consulta si eres OP
+      usage: /<command>
+   opeame:
+      description: Te hace op
+      usage: /<command>
